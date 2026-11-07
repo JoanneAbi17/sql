@@ -57,7 +57,32 @@ The store wants to keep customer addresses. Propose two architectures for the CU
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
 ```
-Your answer...
+Type 1 architecture example [overwriting the previous address]
+CUSTOMER_ADDRESS
+------------------------
+address_id (PK)
+customer_id (FK)
+street_address
+city
+province
+postal_code
+country
+
+Type 2 architecture example [preserving the previous address]
+CUSTOMER_ADDRESS
+------------------------
+address_history_id (PK)
+customer_id (FK)
+street_address
+city
+province
+postal_code
+country
+effective_start_date
+effective_end_date
+is_current
+
+Reference: https://docs.oracle.com/cd/E41507_01/epm91pbr3/eng/epm/phcw/concept_UnderstandingSlowlyChangingDimensions-405719.html
 ```
 
 ***
@@ -191,7 +216,18 @@ Read: Boykis, V. (2019, October 16). _Neural nets are just people all the way do
 
 Consider, for example, concepts of labour, bias, LLM proliferation, moderating content, intersection of technology and society, ect. 
 
-
 ```
-Your thoughts...
+I found this article extremely interesting and eye-opening, particularly because I had never really considered the human labour underlying the development of artificial intelligence (AI). There is tremendous potential for AI and large language models (LLMs) to automate tasks, leverage large datasets, accelerate scientific discovery, and advance society. However, the article made me reflect on the ethical costs of these technological advancements and the extent to which they have relied on human exploitation.
+
+One example that immediately came to mind was the CAPTCHA tests I remember completing when accessing websites, where I would have to identify traffic lights, bicycles, or cars in a grid of images. I had always assumed these were simply intended to verify that I was not a robot. I had never considered that similar image-classification activities could also contribute to machine-learning development, potentially without users fully appreciating how their input might be used. This made the discussion of Amazon Mechanical Turk particularly striking. While researchers were making incredible scientific advances that helped lay the foundation for technologies we use today, much of this work depended on individuals performing repetitive, poorly compensated, and largely unrecognized labour. To me, this reflects a broader problem with capitalism, where technological and economic progress can come at the expense of workers. The author's analogy to clothing manufacturing was particularly effective in illustrating that, despite our perception of automation, human labour remains fundamental to many technological processes. I believe we can advance society through innovation without sacrificing fairness, compensation, and recognition for the individuals making these advances possible.
+
+The article also made me reflect on the growing adoption of AI across industries and the potential displacement of workers. Although AI promises greater efficiency and productivity, we should consider at what cost these efficiencies are achieved. Companies are increasingly exploring replacing human roles with AI, but whether this ultimately delivers meaningful improvements in productivity, profitability, or quality remains uncertain. More importantly, we need to consider the broader societal consequences of reducing human involvement in activities that require expertise, critical thinking, and judgment.
+
+Another important concern is the introduction and perpetuation of bias through AI systems. As we discussed in the previous article, datasets are not inherently objective; they reflect the decisions, assumptions, and limitations of the individuals who collect and classify information. These biases can subsequently become embedded in the algorithms trained on these datasets. This is particularly concerning when AI is applied to high-stakes decisions, including military applications such as drone warfare and targeting, where errors or biased classifications can have devastating consequences. In my opinion, decisions involving human lives should never be fully delegated to automated systems without meaningful human accountability and oversight.
+
+As a surgical resident, I am particularly interested in how AI will transform healthcare and medical education. Although I recognize its tremendous potential to improve clinical care, I also wonder how increasing automation will affect the training of future physicians. There is already growing interest in AI-assisted surgery and potentially more autonomous robotic procedures. While these technologies may eventually improve surgical precision and outcomes, what happens to surgical trainees if they are no longer performing the procedures themselves? Will future surgeons develop the necessary technical expertise and clinical judgment to intervene when an automated system fails? Who would ultimately be responsible for complications? I think this parallels concerns surrounding the use of LLMs in education. Although these tools can enhance learning, excessive reliance on them may undermine the process of struggling with difficult problems, developing independent reasoning, and acquiring foundational skills.
+
+Finally, these concerns are particularly relevant to my own research using large administrative health databases. Much of the information in these databases is derived from physician documentation, diagnostic codes, billing records, and data abstractors. However, these records are not always accurate and may fail to capture important clinical context. As AI increasingly becomes involved in automating data abstraction and classification, I worry that models trained on imperfect information may simply reproduce or amplify existing errors and biases. Unlike a human abstractor who can seek clarification or consider additional clinical context, an LLM may generate plausible but inaccurate interpretations. This has important implications for the validity of research findings and, ultimately, clinical decision-making.
+
+Overall, this article challenged me to think more critically about the human contributions underlying technologies that we increasingly take for granted. While I am enthusiastic about the potential of AI to advance science, medicine, and society, I believe these advances must be accompanied by greater transparency, accountability, and consideration of their consequences. Technological progress should not come at the cost of human dignity, equity, or self-developed expertise.
 ```
